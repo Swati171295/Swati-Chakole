@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Login Success</title>
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class="container text-center">
+		<div th:if="${student != null}">
+			<h4>Hello <span th:utext="${student.name}">......</span></h4>
+		</div>
+		<div>
+		<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>ID</th>
+					<th>Student ID</th>
+					<th>English</th>
+					<th>Maths</th>
+					<th>Marathi</th>
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="marks: ${listMarks}">
+					<td th:text="${marks.m_id}">ID</td>
+					<td th:text="${marks.student_id}">Student ID</td>
+					<td th:text="${marks.english}">English</td>
+					<td th:text="${marks.maths}">Maths</td>
+					<td th:text="${marks.marathi}">Marathi</td>
+					<td><a th:href="@{/edit/{id}(id=${student.id})}" class="btn btn-primary">Edit</a></td>
+					<td><a th:href="@{/delete/{id}(id=${student.id})}" class="btn btn-primary">Delete</a></td>		
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	
+	<div>	
+		<h4><a th:href="@{/ }">Home</a></h4>
+	</div>	
+	</div>
+</body>
+</html>
