@@ -22,7 +22,7 @@ import com.example.webApp.repository.StudentRepository;
 public class StudentController {
 
 	@Autowired
-	private StudentService service;
+	private StudentService     service;
 
 	@RequestMapping(value=" ", method=RequestMethod.GET)
 	public String viewHomePage() {
